@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="5"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button28"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="2"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button27" />
+
+    <Button
+        android:id="@+id/button31"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button19"
+        app:layout_constraintEnd_toStartOf="@+id/button28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button29" />
+
+    <Button
+        android:id="@+id/button32"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="3"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button28"
+        app:layout_constraintTop_toBottomOf="@+id/button30" />
+
+    <Button
+        android:id="@+id/button29"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button19"
+        app:layout_constraintEnd_toStartOf="@+id/button27"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button27"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button30"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="1"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/button16"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button27"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button16"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="6"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button17"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="0"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button26"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:backgroundTint="#38AC1E"
+        android:text="L"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button17" />
+
+    <Button
+        android:id="@+id/button23"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="8"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/button17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <Button
+        android:id="@+id/button25"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="9"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/button22"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button23"
+        app:layout_constraintTop_toBottomOf="@+id/button16" />
+
+    <Button
+        android:id="@+id/button24"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="7"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/button21"
+        app:layout_constraintEnd_toStartOf="@+id/button23"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button19" />
+
+    <Button
+        android:id="@+id/button22"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="#"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button17"
+        app:layout_constraintTop_toBottomOf="@+id/button16" />
+
+    <Button
+        android:id="@+id/button21"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="*"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button17"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button19" />
+
+    <Button
+        android:id="@+id/button19"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@drawable/circle_button"
+        android:text="4"
+        android:textColor="@android:color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
