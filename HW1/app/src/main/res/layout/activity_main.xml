@@ -15,18 +15,20 @@
         android:textAlignment="center"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button_x2"
+        app:layout_constraintBottom_toTopOf="@+id/button_2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button_1"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@drawable/circle_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@mipmap/ic_circle"
         android:contentDescription="1"
         android:onClick="pressButton"
         android:text="1"
+        android:textAlignment="center"
         android:textColor="@android:color/white"
         android:textSize="36sp"
         android:visibility="visible"
@@ -37,9 +39,9 @@
 
     <Button
         android:id="@+id/button_2"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@drawable/circle_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@mipmap/ic_circle_3"
         android:contentDescription="2"
         android:onClick="pressButton"
         android:text="2"
@@ -53,9 +55,9 @@
 
     <Button
         android:id="@+id/button_3"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@drawable/circle_button"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@mipmap/ic_circle_2"
         android:contentDescription="3"
         android:onClick="pressButton"
         android:text="3"
@@ -221,8 +223,8 @@
 
     <ImageButton
         android:id="@+id/imageButton_back"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:background="#00FFFFFF"
         android:onClick="pressButtonBack"
         android:scaleType="fitXY"
