@@ -1,5 +1,6 @@
 package pt.ua.cm.hw2.ui;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -52,9 +53,15 @@ public class MainActivity extends AppCompatActivity {
         cForecast.add(new Forecast("Faro", "faro"));
 
         setContentView(R.layout.activity_main);
-
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.add(R.id.frag, new CityFragment(cForecast));
+
+        boolean tabletSize = getResources().getBoolean(R.bool.isLand);
+        if (tabletSize) {
+            ft.add(R.id.frag1, CityFragment.newInstance(cForecast));
+            ft.add(R.id.frag2, WeatherFragment.newInstance(cForecast.get(0)));
+        } else {
+            ft.add(R.id.frag, CityFragment.newInstance(cForecast));
+        }
         ft.commit();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -68,13 +75,18 @@ public class MainActivity extends AppCompatActivity {
                 .findAny()
                 .orElse(null);
         fCast.setDays(days);
-        ft.replace(R.id.frag, new WeatherFragment(fCast));
+        boolean tabletSize = getResources().getBoolean(R.bool.isLand);
+        if (tabletSize) {
+            ft.replace(R.id.frag2, WeatherFragment.newInstance(fCast));
+        } else {
+            ft.replace(R.id.frag, WeatherFragment.newInstance(fCast));
+        }
         ft.commit();
     }
 
     public void startCitiesFragment() {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft.replace(R.id.frag, new CityFragment(cForecast));
+        ft.replace(R.id.frag, CityFragment.newInstance(cForecast));
         ft.commit();
         alreadyExecuted = false;
     }
@@ -120,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
                                 public void receiveForecastList(List<Weather> forecast) {
                                     if(!alreadyExecuted) {
                                         startWeatherFragment(city, forecast);
-                                        Log.v("MAIN", "Start");
                                         alreadyExecuted = true;
                                     }
                                 }
@@ -144,64 +155,4 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void callWeatherForecastForACityStep1(String city) {
-
-        feedback.append("\nGetting forecast for: " + city + "\n");
-
-        // call the remote api, passing an (anonymous) listener to get back the results
-        client.retrieveWeatherConditionsDescriptions(new WeatherTypesResultsObserver() {
-            @Override
-            public void receiveWeatherTypesList(HashMap<Integer, WeatherType> descriptorsCollection) {
-                MainActivity.this.weatherDescriptions = descriptorsCollection;
-                callWeatherForecastForACityStep2( city);
-            }
-            @Override
-            public void onFailure(Throwable cause) {
-                feedback.append("Failed to get weather conditions!");
-            }
-        });
-        //Log.v("MAIN", feedback.toString());
-    }
-
-    private void callWeatherForecastForACityStep2(String city) {
-        client.retrieveCitiesList(new CityResultsObserver() {
-
-            @Override
-            public void receiveCitiesList(HashMap<String, City> citiesCollection) {
-                MainActivity.this.cities = citiesCollection;
-                City cityFound = cities.get(city);
-                if( null != cityFound) {
-                    int locationId = cityFound.getGlobalIdLocal();
-                    callWeatherForecastForACityStep3(locationId);
-                } else {
-                    feedback.append("unknown city: " + city);
-                }
-            }
-
-            @Override
-            public void onFailure(Throwable cause) {
-                feedback.append("Failed to get cities list!");
-            }
-        });
-    }
-
-    private void callWeatherForecastForACityStep3(int localId) {
-        client.retrieveForecastForCity(localId, new ForecastForACityResultsObserver() {
-            @Override
-            public void receiveForecastList(List<Weather> forecast) {
-                for (Weather day : forecast) {
-                    feedback.append(day.toString());
-                    feedback.append("\t");
-                }
-                //Log.v("MAIN", feedback.toString());
-            }
-            @Override
-            public void onFailure(Throwable cause) {
-                feedback.append( "Failed to get forecast for 5 days");
-            }
-        });
-
-    }
-
 }

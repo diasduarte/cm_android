@@ -26,16 +26,22 @@ import pt.ua.cm.hw2.R;
 import pt.ua.cm.hw2.datamodel.Forecast;
 import pt.ua.cm.hw2.datamodel.Weather;
 import pt.ua.cm.hw2.ui.CityAdapter;
+import pt.ua.cm.hw2.ui.CityList.CityFragment;
 import pt.ua.cm.hw2.ui.ForecastAdapter;
 import pt.ua.cm.hw2.ui.MainActivity;
 
 public class WeatherFragment extends Fragment {
 
-    private WeatherViewModel mViewModel;
-
     private Forecast forecast;
 
-    public WeatherFragment(Forecast forecast) {
+    public static WeatherFragment newInstance(Forecast m_forecast)
+    {
+        WeatherFragment myFragment = new WeatherFragment();
+        myFragment.setForecast(m_forecast);
+        return myFragment;
+    }
+
+    public void setForecast(Forecast forecast) {
         this.forecast = forecast;
     }
 
@@ -57,12 +63,17 @@ public class WeatherFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         FloatingActionButton fab = view.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ((MainActivity)getActivity()).startCitiesFragment();
-            }
-        });
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+        if (tabletSize) {
+            fab.hide();
+        } else {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    ((MainActivity) getActivity()).startCitiesFragment();
+                }
+            });
+        }
 
         ImageView imageCity = view.findViewById(R.id.imageCity);
         imageCity.setImageDrawable(getContext().getResources().getDrawable(getContext().getResources().getIdentifier(forecast.getImage(), "drawable", getContext().getPackageName())));

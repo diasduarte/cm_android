@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -22,10 +21,16 @@ import pt.ua.cm.hw2.ui.CityAdapter;
 
 public class CityFragment extends Fragment {
 
-    private static final String TAG = "Log";
     List<Forecast> cities;
 
-    public CityFragment(List<Forecast> cities) {
+    public static CityFragment newInstance(List<Forecast> m_cities)
+    {
+        CityFragment myFragment = new CityFragment();
+        myFragment.setCities(m_cities);
+        return myFragment;
+    }
+
+    public void setCities(List<Forecast> cities) {
         this.cities = cities;
     }
 
