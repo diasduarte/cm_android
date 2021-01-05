@@ -55,8 +55,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
-        boolean tabletSize = getResources().getBoolean(R.bool.isLand);
-        if (tabletSize) {
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+        boolean isLand = getResources().getBoolean(R.bool.isLand);
+        if (tabletSize || isLand) {
             ft.add(R.id.frag1, CityFragment.newInstance(cForecast));
             ft.add(R.id.frag2, WeatherFragment.newInstance(cForecast.get(0)));
         } else {
@@ -75,8 +76,9 @@ public class MainActivity extends AppCompatActivity {
                 .findAny()
                 .orElse(null);
         fCast.setDays(days);
-        boolean tabletSize = getResources().getBoolean(R.bool.isLand);
-        if (tabletSize) {
+        boolean tabletSize = getResources().getBoolean(R.bool.isTablet);
+        boolean isLand = getResources().getBoolean(R.bool.isLand);
+        if (tabletSize || isLand) {
             ft.replace(R.id.frag2, WeatherFragment.newInstance(fCast));
         } else {
             ft.replace(R.id.frag, WeatherFragment.newInstance(fCast));
